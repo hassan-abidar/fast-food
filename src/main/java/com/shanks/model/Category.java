@@ -1,7 +1,8 @@
 package com.shanks.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.*;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,6 +18,10 @@ public class Category {
     @GeneratedValue (strategy = GenerationType.AUTO)
     private Long id ;
 
+    private String name;
 
+    @ManyToOne
+    @JsonIgnore
+    private Restaurant restaurant;
 
 }
