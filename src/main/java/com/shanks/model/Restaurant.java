@@ -31,7 +31,7 @@ public class Restaurant {
     private String cuisineType;
 
     @OneToOne
-    private Adress adress;
+    private Address address;
 
     @Embedded
     private ContactInformtion contactInformtion;

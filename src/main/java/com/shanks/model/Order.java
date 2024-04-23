@@ -33,7 +33,7 @@ public class Order {
     private Date createdAt;
 
     @ManyToOne
-    private Adress deliveryAdress;
+    private Address deliveryAddress;
 
     @OneToMany
     private List<OrderItem> items ;

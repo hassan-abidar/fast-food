@@ -1,2 +1,7 @@
-package com.shanks.repository;public interface AdressRepository {
+package com.shanks.repository;
+
+import com.shanks.model.Address;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface AdressRepository extends JpaRepository<Address,Long> {
 }
