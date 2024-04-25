@@ -90,7 +90,7 @@ public class RestaurantServiceImpl implements RestaurantService{
     @Override
     public Restaurant getRestaurantByUserId(Long userId) throws Exception {
         Restaurant restaurant=restaurantRepository.findByOwnerId(userId);
-        if(restaurant!=null){
+        if(restaurant==null){
             throw new Exception("restaurant not found with owner id "+userId);
 
         }
