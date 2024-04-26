@@ -82,7 +82,6 @@ public class RestaurantServiceImpl implements RestaurantService{
         Optional<Restaurant> opt = restaurantRepository.findById(id);
         if(opt.isEmpty()){
             throw  new Exception("Restaurant not found with id "+id);
-
         }
         return  opt.get();
     }

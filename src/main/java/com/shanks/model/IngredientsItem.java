@@ -1,6 +1,7 @@
 package com.shanks.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,6 +21,7 @@ public class IngredientsItem {
     private String name;
 
     @ManyToOne
+    @JsonIgnore
     private IngredientCategory category;
 
     @ManyToOne
