@@ -96,7 +96,6 @@ public class AuthController {
         authResponse.setMessage("Login Success");
         authResponse.setUSERRole(ROLE.valueOf(role));
         //authResponse.setUSERRole(savedUser.getUSERRole());
-
         return new ResponseEntity<>(authResponse, HttpStatus.OK);
     }
 
