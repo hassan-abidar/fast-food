@@ -23,5 +23,4 @@ public class Address {
     private String stateProvince;
     private String postalCode;
     private String Country;
-
 }

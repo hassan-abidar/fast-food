@@ -63,8 +63,6 @@ public class CartController {
             @RequestHeader("Authorization") String jwt) throws Exception {
         User user = userService.findUserByJwtToken(jwt);
         Cart cart = cartService.findCartByUserId(user.getId());
-        Long total = cartService.calculateCartTotal(cart);
-        cart.setTotal(total);
         return new ResponseEntity<>(cart, HttpStatus.OK);
 
     }

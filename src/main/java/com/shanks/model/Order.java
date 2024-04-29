@@ -26,8 +26,6 @@ public class Order {
     @JsonIgnore
     private Restaurant restaurant;
 
-    private  Long totalAmount;
-
     private String orderStatus;
 
     private Date createdAt;
@@ -41,7 +39,7 @@ public class Order {
     //private  Payment payment;
     private int totalItems;
 
-    private int totalPrice;
+    private Long totalPrice;
 
 
 
