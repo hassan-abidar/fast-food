@@ -40,9 +40,7 @@ public class OrderServiceImpl implements OrderService{
             user.getAddresses().add(savedAddress);
             userRepository.save(user);
         }
-        System.out.println("Debugging : "+order.getRestaurantId());
-        System.out.println("Debugging : "+order.getDeliveryAddress().getPostalCode());
-
+        //System.out.println("Debuggin : "+order.getRestaurantId());
         Restaurant restaurant=restaurantService.findRestaurantById(order.getRestaurantId());
         Order createdOrder = new Order();
         createdOrder.setCreatedAt(new Date());
