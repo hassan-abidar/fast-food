@@ -38,6 +38,7 @@ public class Food {
     private boolean available;
 
     @ManyToOne
+    @JsonIgnore
     private Restaurant restaurant;
 
     private boolean isVegeterian;
@@ -45,7 +46,6 @@ public class Food {
     private boolean isSeasonal;
 
     @ManyToMany
-    @JsonIgnore
     private List<IngredientsItem> ingredients = new ArrayList<>();
 
     private Date createdAt;

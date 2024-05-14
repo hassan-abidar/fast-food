@@ -38,16 +38,10 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public List<Category> findCategoryByRestaurantId(Long userId) throws Exception {
-        // Get restaurant by user ID
         Restaurant restaurant = restaurantService.getRestaurantByUserId(userId);
 
-        // Check if the restaurant is null
-        if (restaurant == null) {
-            throw new Exception("Restaurant not found for user ID: " + userId);
-        }
-
         // Find categories by restaurant ID
-        return categoryRepository.findByRestaurantId(restaurant.getId());
+        return categoryRepository.findByRestaurantId(userId);
     }
 }
 

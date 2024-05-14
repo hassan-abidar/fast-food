@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -30,6 +31,7 @@ public class FoodServiceImpl implements FoodService {
         food.setIngredients(request.getIngredients());
         food.setSeasonal(request.isSeasonal());
         food.setVegeterian(request.isVegeterian());
+        food.setCreatedAt(new Date());
 
         Food savedFood = foodRepository.save(food);
         restaurant.getFoods().add(savedFood);
