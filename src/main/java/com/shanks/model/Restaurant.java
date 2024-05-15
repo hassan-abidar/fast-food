@@ -1,6 +1,8 @@
 package com.shanks.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -39,6 +41,7 @@ public class Restaurant {
     private String openingHours;
 
     @OneToMany(mappedBy = "restaurant",cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Order> orders = new ArrayList<>();
 
     @ElementCollection
@@ -49,6 +52,9 @@ public class Restaurant {
 
     private boolean open;
 
-    @OneToMany(mappedBy = "restaurant" , cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("restaurant")
     private List<Food> foods = new ArrayList<>();
+
+
 }
