@@ -36,7 +36,7 @@ public class Restaurant {
     private Address address;
 
     @Embedded
-    private ContactInformtion contactInformtion;
+    private ContactInformation contactInformation;
 
     private String openingHours;
 

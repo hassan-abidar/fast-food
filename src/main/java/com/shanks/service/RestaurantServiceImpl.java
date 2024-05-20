@@ -33,7 +33,7 @@ public class RestaurantServiceImpl implements RestaurantService{
 
         Restaurant restaurant = new Restaurant();
         restaurant.setAddress(address);
-        restaurant.setContactInformtion(req.getContactInformtion());
+        restaurant.setContactInformation(req.getContactInformation());
         restaurant.setCuisineType(req.getCuisineType());
         restaurant.setDescription(req.getDescription());
         restaurant.setImages(req.getImages());
@@ -113,10 +113,10 @@ public class RestaurantServiceImpl implements RestaurantService{
             restaurantDto.setName(restaurant.getName());
             restaurantDto.setImages(restaurant.getImages());
             restaurantDto.setId(restaurant.getId());
+            restaurantDto.setOpen(restaurant.isOpen());
             user.getFavorites().add(restaurantDto);
         }
         userRepository.save(user);
-
         return restaurantDto;
     }
 

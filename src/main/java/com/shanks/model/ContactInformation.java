@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 
-public class ContactInformtion {
+public class ContactInformation {
 
     private String email;
     private String mobile;
