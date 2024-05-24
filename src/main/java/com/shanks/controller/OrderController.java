@@ -4,7 +4,9 @@ import com.shanks.model.CartItem;
 import com.shanks.model.Order;
 import com.shanks.model.User;
 import com.shanks.request.OrderRequest;
+import com.shanks.response.PaymentResponse;
 import com.shanks.service.OrderService;
+import com.shanks.service.PaymentService;
 import com.shanks.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,13 +23,16 @@ public class OrderController {
     private OrderService orderService;
     @Autowired
     private UserService userService;
+    @Autowired
+    private PaymentService paymentService;
 
     @PostMapping("/order/create")
-    public ResponseEntity<Order> createOrder(@RequestBody OrderRequest request,
-                                             @RequestHeader("Authorization") String jwt) throws Exception {
+    public ResponseEntity<PaymentResponse> createOrder(@RequestBody OrderRequest request,
+                                                       @RequestHeader("Authorization") String jwt) throws Exception {
         User user = userService.findUserByJwtToken(jwt);
         Order order = orderService.createOrder(request,user);
-        return new ResponseEntity<>(order, HttpStatus.CREATED);
+        PaymentResponse response = paymentService.createPaymentLink(order);
+        return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
     @GetMapping("/order/user")
     public ResponseEntity<List<Order>> getOrderHistory(@RequestHeader("Authorization") String jwt) throws Exception {
